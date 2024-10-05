@@ -66,7 +66,7 @@ CPU Cores: 4
 CPU Frequency: 1800.00 MHz = 1.80 GHz
 Total Memory: 32523972 KB = 31761 MB = 31 GB
 Free Memory: 2102048 KB = 2052 MB = 2 GB
-Memory Usage: 56716513051106.54%
+Memory Usage: 98.54%
 Total Disk Space: 459332712 KB = 448567 MB = 438 GB
 Free Disk Space: 329133640 KB = 321419 MB = 313 GB
 Disk Usage: 28.35%
