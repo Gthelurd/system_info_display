@@ -59,7 +59,7 @@ $ ./system_info_tool
 Operating System Version: Linux 5.15.0-122-generic
 Kernel Version: #132~20.04.1-Ubuntu SMP Fri Aug 30 15:50:07 UTC 2024
 Boot Time: 434043 seconds or 5 days 0 hours 34 minutes 3 seconds
-Current User: guran2
+Current User: ThinkpadE480
 Load Average (1min, 5min, 15min): 1.07, 1.49, 1.79
 CPU Model: Intel(R) Core(TM) i5-8250U CPU @ 1.60GHz
 CPU Cores: 4
@@ -85,6 +85,7 @@ docker0:: RX: 1386354 bytes, TX: 51106433 bytes
 - [ ] User argument input to select information
 - [ ] Performance Optimization
 - [ ] Error Handling and Logging
+- [ ] Windows System info
 
 #### say something
 you can also running those in bash and get some same(?) result like the project:
