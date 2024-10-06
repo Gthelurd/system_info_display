@@ -65,6 +65,15 @@ void get_linux_info(SystemInfo *info) {
         if (pwd) {
             snprintf(cached_info.current_user, sizeof(cached_info.current_user), "%s", pwd->pw_name);
         }
+        
+        // current time
+        time_t now;
+        struct tm* timeinfo;
+        char* buffer = malloc(sizeof(char) * kMaxInfoBuffer);
+        time(&now);
+        timeinfo = localtime(&now);
+        strftime(buffer, kMaxInfoBuffer, "%Y-%m-%d %H:%M:%S", timeinfo);
+        snprintf(cached_info.current_time, sizeof(cached_info.current_time), "%s", buffer);
 
         // CPU info
         FILE *cpuinfo = fopen("/proc/cpuinfo", "r");

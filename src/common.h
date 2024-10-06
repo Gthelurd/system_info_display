@@ -10,6 +10,7 @@
 // Common defines
 #define  kMaxInfoBuffer 256
 #define  lMaxInfoBuffer 1024
+#define  mMaxInfoBuffer 65536
 #define  lBuffer 4096
 #define  GBYTES  1073741824    
 #define  MBYTES  1048576    
@@ -84,6 +85,7 @@
  *   cpu_usage - CPU usage percentage.
  *   network_interfaces - List of network interfaces.
  *   processes - List of running processes.
+ *   current_time - Current system time.
  */
 typedef struct {
     char os_version[kMaxInfoBuffer];          // System version
@@ -106,7 +108,8 @@ typedef struct {
     double load_average_15min;                // load average in 15 minutes
     double cpu_usage;                         // CPU usage percentage
     char network_interfaces[lMaxInfoBuffer];  // List of network interfaces
-    char processes[lBuffer];           // List of running processes
+    char processes[mMaxInfoBuffer];           // List of running processes
+    char current_time[kMaxInfoBuffer];        // Current time (Y-M-D HH:MM:SS)
 } SystemInfo;
 
 /*
@@ -151,7 +154,8 @@ void get_system_info(SystemInfo *info);
  *     - MAC Address
  *     - CPU Usage
  *     - Network Interfaces
- *     - Running Processes `TOBEDONE`
+ *     - Running Processes 
+ *     - Current Time
  */
 void print_system_info(const SystemInfo *info);
 // Picture printing
