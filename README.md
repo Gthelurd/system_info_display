@@ -81,7 +81,7 @@ docker0:: RX: 1386354 bytes, TX: 51106433 bytes
 ```
 #### TODO-list
 - [x] NEtwork Interfaces
-- [ ] Process Information
+- [x] Process Information
 - [ ] User argument input to select information
 - [ ] Performance Optimization
 - [ ] Error Handling and Logging
