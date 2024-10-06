@@ -7,6 +7,7 @@ void get_linux_info(SystemInfo *info);
 #endif // __unix__
 #endif // LINUX_INFO_H
 
+
 // TODO： explain the struct used in different headers.
 
 // struct ifaddrs
@@ -43,3 +44,5 @@ void get_linux_info(SystemInfo *info);
 // 	__u32 mem_unit;			/* Memory unit size in bytes */
 // 	char _f[20-2*sizeof(__kernel_ulong_t)-sizeof(__u32)];	/* Padding: libc5 uses this.. */
 // };
+
+
