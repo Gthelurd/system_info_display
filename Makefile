@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Iinclude
 
-SRCS = src/main.c src/linux_info.c src/windows_info.c src/common.c
+SRCS = src/main.c src/linux_info.c src/windows_info.c src/common.c src/log.c
 OBJS = $(SRCS:.c=.o)
 
 TARGET = system_info_tool
