@@ -3,6 +3,24 @@
 #define LINUX_INFO_H
 
 #ifdef __unix__
+#include <unistd.h>
+#include <sys/sysinfo.h>
+#include <sys/utsname.h>
+#include <sys/statvfs.h>
+#include <sys/socket.h>
+#include <sys/ioctl.h>
+#include <netinet/in.h>
+#include <net/if.h>
+#include <arpa/inet.h>
+#include <ifaddrs.h>
+#include <linux/if_packet.h> 
+#include <pwd.h>
+#include <fcntl.h>
+#include <linux/hdreg.h>
+#include <sys/resource.h>
+#include <malloc.h>
+#include <dirent.h>
+#include <ctype.h>
 void get_linux_info(SystemInfo *info);
 #endif // __unix__
 #endif // LINUX_INFO_H

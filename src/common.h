@@ -36,41 +36,6 @@
     );\
 }
 
-// Include platform-specific headers
-#ifdef _WIN32
-#include <windows.h>
-#include <tchar.h>
-#include <winsock2.h>
-#include <ws2tcpip.h>
-#include <iphlpapi.h>
-#include <psapi.h>
-#include <shlwapi.h>
-#include <shlobj.h>
-#define DIV 1048576 
-#define WIDTH 7
-#endif
-
-#ifdef __unix__
-#include <unistd.h>
-#include <sys/sysinfo.h>
-#include <sys/utsname.h>
-#include <sys/statvfs.h>
-#include <sys/socket.h>
-#include <sys/ioctl.h>
-#include <netinet/in.h>
-#include <net/if.h>
-#include <arpa/inet.h>
-#include <ifaddrs.h>
-#include <linux/if_packet.h> 
-#include <pwd.h>
-#include <fcntl.h>
-#include <linux/hdreg.h>
-#include <sys/resource.h>
-#include <malloc.h>
-#include <dirent.h>
-#include <ctype.h>
-#endif
-
 /*
  * Structure: SystemInfo
  * ----------------------
