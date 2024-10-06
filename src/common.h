@@ -23,6 +23,19 @@
 #define  MINUTE 60
 #define  SECOND 1
 
+// Picture printing
+#define print_head_pic {\
+    printf(\
+        " ####                                                                      \n"\
+        "#    # # #    # #####  #     ######       ###### ###### #####  ####  #   #\n"\
+        "#      # ##  ## #    # #     #            #      #        #   #    # #   #\n"\
+        " ####  # # ## # #    # #     #####  ##### #####  #####    #   #      #####\n"\
+        "     # # #    # #####  #     #            #      #        #   #      #   #\n"\
+        "#    # # #    # #      #     #            #      #        #   #    # #   #\n"\
+        " ####  # #    # #      ##### ######       #      ######   #    ####  #   #\n"\
+    );\
+}
+
 // Include platform-specific headers
 #ifdef _WIN32
 #include <windows.h>
@@ -158,8 +171,7 @@ void get_system_info(SystemInfo *info);
  *     - Current Time
  */
 void print_system_info(const SystemInfo *info);
-// Picture printing
-void print_head_pic(void);
+
 #endif // COMMON_H
 
 /*

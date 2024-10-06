@@ -3,7 +3,7 @@
 
 int main(int argc, char** argv) {
     SystemInfo info;
-    print_head_pic();
+    print_head_pic;
     // TODO : add your user-arguments code here
 
     get_system_info(&info);

@@ -11,19 +11,6 @@ void get_system_info(SystemInfo *info) {
 #endif
 }
 
-void print_head_pic(void)
-{
-    printf(
-        " ####                                                                       \n"
-        "#    # # #    # #####  #     ######       ###### ###### #####  ####  #    #\n"
-        "#      # ##  ## #    # #     #            #      #        #   #    # #    #\n"
-        " ####  # # ## # #    # #     #####  ##### #####  #####    #   #      #####\n"
-        "     # # #    # #####  #     #            #      #        #   #      #    #\n"
-        "#    # # #    # #      #     #            #      #        #   #    # #    #\n"
-        " ####  # #    # #      ##### ######       #      ######   #    ####  #    #\n"
-    );
-}
-
 
 void print_system_info(const SystemInfo *info) {
     printf("\033[1;32mOperating System Version: \033[0m%s\n", info->os_version);
@@ -41,7 +28,7 @@ void print_system_info(const SystemInfo *info) {
     printf("\033[1;32mTotal Memory: \033[0m%lu KB = %lu MB = %lu GB\n", info->total_memory / KBYTES,info->total_memory / MBYTES,info->total_memory / GBYTES);
     printf("\033[1;32mFree Memory: \033[0m%lu KB = %lu MB = %lu GB\n", info->free_memory / KBYTES,info->free_memory / MBYTES,info->free_memory / GBYTES);
     printf("\033[1;32mMemory Usage: \033[0m%.2f%%\n", info->memory_usage);
-    
+
     printf("\033[1;32mTotal Disk Space: \033[0m%lu KB = %lu MB = %lu GB\n", info->total_disk / KBYTES,info->total_disk / MBYTES,info->total_disk / GBYTES);
     printf("\033[1;32mFree Disk Space: \033[0m%lu KB = %lu MB = %lu GB\n", info->free_disk / KBYTES,info->free_disk / MBYTES,info->free_disk / GBYTES);
     printf("\033[1;32mDisk Usage: \033[0m%.2f%%\n", info->disk_usage);
