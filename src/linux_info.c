@@ -16,9 +16,13 @@
  *   - The function uses various system APIs and files to gather information:
  *     - `uname` for OS and kernel version.
  *     - `sysinfo` for memory and uptime information.
- *     - `/proc/cpuinfo` for CPU model, cores, and frequency.
+ *     - `/proc/cpuinfo` for CPU model, cores, and frequency and average load.
+ *     - `/proc/meminfo` for memory usage information.
+ *     - `/proc/stat` for CPU usage information.
  *     - `statvfs` for disk space information.
+ *     - `getpid` for process ID.
  *     - `getifaddrs` for network interface information (IP and MAC addresses).
+ * 
  */
 void get_linux_info(SystemInfo *info) {
     static int initialized = 0;
@@ -38,13 +42,16 @@ void get_linux_info(SystemInfo *info) {
         cached_info.total_memory = meminfo.totalram;
         cached_info.free_memory = meminfo.freeram;
         FILE *meminfo_file = fopen("/proc/meminfo", "r");
+        char line[256];
         if (meminfo_file) {
             unsigned long long total_memory, free_memory, buffers, cached;
             fscanf(meminfo_file, "MemTotal: %llu kB\n", &total_memory);
             fscanf(meminfo_file, "MemFree: %llu kB\n", &free_memory);
+            fgets(line,sizeof(line),meminfo_file); // Skip "MemAvailable: xx kB\n"
             fscanf(meminfo_file, "Buffers: %llu kB\n", &buffers);
             fscanf(meminfo_file, "Cached: %llu kB\n", &cached);
-            cached_info.memory_usage = 100.0 * (total_memory - free_memory - buffers - cached) / total_memory;
+            cached_info.memory_usage = 100.0 * ((double)(total_memory - free_memory - buffers - cached) / total_memory);
+            // printf("%llu %llu %llu %llu %llu\n", total_memory, free_memory, buffers, cached,(total_memory - free_memory - buffers - cached));
             fclose(meminfo_file);
         }
         // below code doesn't work well because mi.uordblks and mi.hblkhd are not accurate
@@ -65,7 +72,7 @@ void get_linux_info(SystemInfo *info) {
         if (pwd) {
             snprintf(cached_info.current_user, sizeof(cached_info.current_user), "%s", pwd->pw_name);
         }
-        
+
         // current time
         time_t now;
         struct tm* timeinfo;
